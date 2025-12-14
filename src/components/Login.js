@@ -8,6 +8,7 @@ import {
 import { auth } from "../utils/firebase";
 import { addUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
+import { NETFLIX_BG, USER_IMG } from "../utils/constants";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -46,8 +47,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://www.shutterstock.com/image-vector/deadpool-icon-logo-sign-symbol-600nw-2394182337.jpg",
+            photoURL: USER_IMG,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -83,7 +83,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
         })
         .catch((error) => {
           const code = error.code.replace("auth/", "");
@@ -100,11 +99,7 @@ const Login = () => {
   return (
     <div>
       <div>
-        <img
-          className="fixed"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/30c8b9f4-3db9-4b3b-a1ee-8fa56531b712/web/IN-en-20251201-TRIFECTA-perspective_c7623e8e-c406-43d2-9d9a-0140ce19ac84_large.jpg"
-          alt="Netflix"
-        />
+        <img className="fixed" src={NETFLIX_BG} alt="Netflix" />
       </div>
 
       <form

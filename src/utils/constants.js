@@ -6,3 +6,11 @@ export const NETFLIX_BG =
   "https://assets.nflxext.com/ffe/siteui/vlv3/30c8b9f4-3db9-4b3b-a1ee-8fa56531b712/web/IN-en-20251201-TRIFECTA-perspective_c7623e8e-c406-43d2-9d9a-0140ce19ac84_large.jpg";
 export const ERR_IMG =
   "https://img.freepik.com/free-vector/glitch-error-404-page_23-2148105404.jpg?semt=ais_hybrid&w=740&q=80";
+export const API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ZGJhZGVkMjVjY2RhYjhhMjU0MTYwYmEwNDg5ZDM2MSIsIm5iZiI6MTc2NTcxNzQzMS41ODYsInN1YiI6IjY5M2ViNWI3YzY3YWYxNGEyZDk5OTVkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LqlMMHag885IfRTxSp7FvQvLdKqzg4UWExHR96hCTN4",
+  },
+};

@@ -50,7 +50,7 @@ const Header = () => {
       {user && (
         <div className="flex items-center p-4">
           <img
-            className="w-12 h-12 mr-4 rounded-lg border border-red-700 border-2"
+            className="w-12 h-12 mr-4 rounded-lg border-red-700 border-2"
             src={user.photoURL}
             alt="User"
           />

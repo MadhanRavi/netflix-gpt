@@ -5,7 +5,9 @@ import { auth } from "../utils/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO_URL } from "../utils/constants";
+import { languages, LOGO_URL } from "../utils/constants";
+import { toggleSearch } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -41,26 +43,57 @@ const Header = () => {
       });
   };
 
+  const handleGptSearch = () => {
+    dispatch(toggleSearch());
+  };
+
+  const handleLangChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   return (
-    <div className="absolute z-10 bg-gradient-to-b from-black w-screen flex justify-between">
+    <div className="absolute px-4 z-10 bg-gradient-to-b from-black w-screen flex justify-between">
       <Link to="/">
         <img className="w-44 " src={LOGO_URL} alt="Logo" />
       </Link>
       {user && (
-        <div className="flex items-center p-4">
-          <img
-            className="w-12 h-12 mr-4 rounded-lg border-red-700 border-2"
-            src={user.photoURL}
-            alt="User"
-          />
-          <div className="text-center">
-            <h1 className="font-bold text-white text-xl">{user.displayName}</h1>
+        <div className="flex">
+          {showGptSearch && (
+            <select
+              className="bg-gray-300 py-2 px-4 m-4"
+              onChange={handleLangChange}>
+              {languages.map((lang) => (
+                <option key={lang.id} value={lang.id}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+          <div className="flex">
             <button
-              onClick={handleSignOut}
-              className="font-bold text-white italic text-sm">
-              Sign Out
+              onClick={handleGptSearch}
+              className="bg-yellow-400 py-2m px-4 m-4 rounded-lg font-bold hover:bg-yellow-600">
+              {showGptSearch ? "Home Page" : "GPT Search"}
             </button>
+          </div>
+          <div className="flex items-center p-4">
+            <img
+              className="w-12 h-12 mr-4 rounded-lg border-red-700 border-2"
+              src={user.photoURL}
+              alt="User"
+            />
+            <div className="text-center">
+              <h1 className="font-bold text-white text-xl">
+                {user.displayName}
+              </h1>
+              <button
+                onClick={handleSignOut}
+                className="font-bold text-white italic text-sm">
+                Sign Out
+              </button>
+            </div>
           </div>
         </div>
       )}

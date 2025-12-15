@@ -8,7 +8,7 @@ const MovieCard = ({ movies }) => {
         {movies.map((movie) => (
           <img
             key={movie.id}
-            className="w-40 pr-4"
+            className="w-40 pr-4 cursor-pointer hover:scale-150 hover:shadow-lg"
             src={MOVIE_IMG_CDN + movie?.poster_path}
             alt="Poster"
           />

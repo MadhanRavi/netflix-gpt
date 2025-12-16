@@ -1,6 +1,6 @@
 import React from "react";
-import GptMovieList from "./GptMovieList";
 import GptSearch from "./GptSearch";
+import GptMovieList from "./GptMovieList";
 import { NETFLIX_BG } from "../utils/constants";
 
 const GptContainer = () => {

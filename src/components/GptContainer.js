@@ -7,7 +7,11 @@ const GptContainer = () => {
   return (
     <div className="">
       <div className="relative -z-10">
-        <img className="fixed" src={NETFLIX_BG} alt="Netflix" />
+        <img
+          className="fixed h-screen object-cover lg:h-auto"
+          src={NETFLIX_BG}
+          alt="Netflix"
+        />
       </div>
       <GptSearch />
       <GptMovieList />

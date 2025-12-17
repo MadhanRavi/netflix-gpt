@@ -9,7 +9,7 @@ const MainContainer = () => {
 
   const mainMovie = movies[0];
   return (
-    <div className="relative">
+    <div className="relative pt-[40%] md:pt-[15%] lg:p-0 bg-black">
       <VideoInfo info={mainMovie} />
       <VideoBackground info={mainMovie} />
     </div>

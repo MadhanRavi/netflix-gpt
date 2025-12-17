@@ -99,12 +99,16 @@ const Login = () => {
   return (
     <div>
       <div>
-        <img className="fixed" src={NETFLIX_BG} alt="Netflix" />
+        <img
+          className="fixed h-screen object-cover w-screen"
+          src={NETFLIX_BG}
+          alt="Netflix"
+        />
       </div>
 
       <form
         onSubmit={formSubmit}
-        className="p-12 bg-black bg-opacity-85 absolute mx-auto w-3/12 left-0 right-0 m-32 rounded-lg text-white">
+        className="p-8 lg:p-12 bg-black bg-opacity-85 absolute mx-auto w-[90%] md:w-6/12 lg:w-3/12 left-0 right-0 m-32 rounded-lg text-white">
         <h1 className="text-3xl font-bold mb-4">
           {isSignIn ? "Sign In" : "Sign Up"}
         </h1>

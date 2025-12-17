@@ -10,7 +10,7 @@ const MovieCard = ({ movies }) => {
             movie?.poster_path && (
               <img
                 key={movie.id}
-                className="w-40 pr-4 cursor-pointer hover:shadow-lg"
+                className="w-28 md:w-40 pr-4 cursor-pointer hover:shadow-lg"
                 src={MOVIE_IMG_CDN + movie?.poster_path}
                 alt="Poster"
               />

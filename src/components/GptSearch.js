@@ -47,17 +47,17 @@ const GptSearch = () => {
   return (
     <div className="pt-40">
       <form
-        className="w-6/12 mx-auto bg-black p-6 rounded-lg grid grid-cols-12 bg-opacity-85"
+        className="w-full md:w-8/12 lg:w-6/12 mx-auto bg-black p-2 md:p-6 rounded-lg grid grid-cols-12 bg-opacity-85"
         onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
-          className="p-2 border m-4 col-span-10"
+          className="p-2 border m-4 col-span-8 md:col-span-10"
           placeholder={lang[langKey].gptPlaceHolder}
           ref={searchText}
         />
         <button
           onClick={handleSearch}
-          className="px-4 py-2 my-4 bg-red-500 text-white rounded-lg col-span-2 hover:bg-red-600">
+          className="px-4 py-2 my-4 bg-red-500 text-white rounded-lg col-span-4 md:col-span-2 hover:bg-red-600">
           {lang[langKey].search}
         </button>
       </form>
